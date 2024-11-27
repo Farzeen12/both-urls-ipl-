@@ -1,0 +1,31 @@
+"""
+URL configuration for ipl project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path,include
+import csk,mi
+from rcb.views import *
+from rr.views import *
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('csk/',include('csk.urls')),
+    path('mi/',include('mi.urls')),
+    path('rcb_best_batsman/',rcb_best_batsman,name='rcb_best_batsman'),
+    path('rcb_best_bowler/',rcb_best_bowler,name='rcb_best_bowler'),
+    path('rr_captain/',rr_captain,name='rr_captain'),
+    path('rr_vice_captain/',rr_vice_captain,name='rr_vice_captain'),
+]
